@@ -1,4 +1,4 @@
-from flask import Flask, render_template, render_template_string
+from flask import Flask, render_template, render_template_string, request, jsonify
 import os
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
@@ -37,9 +37,9 @@ def chapter_page(course_name, chapter_name, page_number):
     ]
     pages.sort(key=sortPages)
     navigation_component = render_template_string(components.navigation, pages=pages, course_name=course_name, chapter_name=chapter_name)
-    return render_template(f'{course_name}/{chapter_name}/{pages[int(page_number)-1]['value']}',
+    return render_template(f"{course_name}/{chapter_name}/{pages[int(page_number)-1]['value']}",
                            chapter_name=chapter_name,
-                           chapter_label=chapter_name.split('_')[1], 
+                           chapter_label=chapter_name.split('_')[1],
                            course_name=course_name,
                            pages=pages,
                            pages_length=len(pages),
@@ -65,3 +65,26 @@ def course_page(course_name):
     return render_template(
         f"{course_name}/index.html", course_name=course_name, chapters=chapters
     )
+
+
+@app.route("/execute", methods=["POST"])
+def execute_code():
+    data = request.get_json()
+    if not data or "programming_language_name" not in data or "code_content" not in data:
+        return jsonify({"error": "Invalid request"}), 400
+
+    if data["programming_language_name"].lower() != "python":
+        return jsonify({"error": "Only python is supported"}), 400
+
+    code = data["code_content"]
+    import io
+    import contextlib
+
+    buffer = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(buffer):
+            exec(code, {})
+    except Exception as e:
+        return jsonify({"output": buffer.getvalue(), "error": str(e)}), 400
+
+    return jsonify({"output": buffer.getvalue()})
