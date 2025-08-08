@@ -1,0 +1,188 @@
+{
+  "main": {
+    "id": "335001cbaf214b59",
+    "type": "split",
+    "children": [
+      {
+        "id": "5ea523be55309871",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cfcd888f6342ab1b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "programming_101/1_Introduction.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "1_Introduction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "179b2a340e0d30e2",
+    "type": "split",
+    "children": [
+      {
+        "id": "d3331a8740b05634",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fe7f01997dcf040d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "bfa4defa40462482",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "dbf936c4df01dbd9",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3d52691546242df2",
+    "type": "split",
+    "children": [
+      {
+        "id": "433beb32d4020062",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "738852d37745d388",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Programming 101/1_Introduction.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for 1_Introduction"
+            }
+          },
+          {
+            "id": "2dba78615664a2b1",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Programming 101/1_Introduction.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from 1_Introduction"
+            }
+          },
+          {
+            "id": "ce86be692be57a34",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "69ab37913e51f3dd",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Programming 101/1_Introduction.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of 1_Introduction"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "cfcd888f6342ab1b",
+  "lastOpenFiles": [
+    "programming_101/1_introduction/1_Welcome To Class.md",
+    "programming_101/1_introduction/3_Programming Concept.md",
+    "programming_101/1_Introduction.md",
+    "programming_101/1_introduction/2_Basics To Computer.md",
+    "programming_101/Course Outline.md",
+    "output/1_introduction/2_How Computer Keep and process data.md.html",
+    "output/1_introduction/1_Welcome To Class.md.html",
+    "output/1_introduction",
+    "output/1_introduction/2_How Computer Keep and process data.md",
+    "output/1_introduction/1_Welcome To Class.md",
+    "output",
+    "Programming 101/Course Outline.md",
+    "Programming 101/Chapter 1 Introduction.md",
+    "Programming 101/1_Introduction.md"
+  ]
+}

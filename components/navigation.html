@@ -1,0 +1,10 @@
+<div class="chapter-navigation">
+      <div class="nav-title">
+        Chapter Pages
+      </div>
+      {% for page in pages %}
+                <div class="nav-link {{page.style}}">
+                  <a href="/course/{{course_name}}/{{chapter_name}}/{{page.order}}">{{page.order}}. {{page.label}}</a>
+                </div>
+      {% endfor %}
+</div>

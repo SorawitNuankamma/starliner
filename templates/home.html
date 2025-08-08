@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for ('static', filename='style.css') }}"
+    />
+    <style>
+      .chapter {
+        margin-top: 30px;
+        padding: 20px;
+        border: 1px solid rgb(119, 119, 119);
+        border-radius: 20px;
+        position: relative;
+      }
+
+      .course-item-container {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .course-item {
+        margin-left: 30px;
+        cursor: pointer;
+        text-decoration: none;
+        color: rgb(2, 128, 128);
+        font-size: 20px;
+        transition: all ease-in-out 0.1s;
+      }
+
+      .course-intro > * {
+        color: rgb(10, 167, 167);
+      }
+      .course-item:hover {
+        color: blueviolet;
+      }
+      .course-foundation > * {
+        color: rgb(10, 167, 89);
+      }
+      .course-advance > * {
+        color: rgb(167, 10, 141);
+      }
+
+      .section-title {
+        position: absolute;
+        top: -20px;
+        background-color: #e4e4e4;
+        padding: 0 15px;
+      }
+
+      .main-title {
+        transition: all ease-in-out 1s;
+      }
+    </style>
+</head>
+<body class="page">
+    <div class="main-title">
+      <span style="font-size: 100px">CS <span style="font-weight: 900;">180</span></span>
+    </div>
+    <div class="chapter">
+      <div class="title section-title">
+        Introduction Course
+      </div>
+      <ul class="course-item-container course-intro">
+        <course-link href="/course/programming_101">Programming 101</course-link>
+        <course-link href="/course/basic_web_server">Backend Development</course-link>
+        <course-link href="/course/web_development_101">Frontend Web Development</course-link>
+        <course-link href="/course/software_project">Software Project</course-link>
+        <course-link href="/course/discrete_math">Discrete Math</course-link>
+      </ul>
+    </div>
+    <div class="chapter">
+      <div class="title section-title">
+        Foundational Course
+      </div>
+      <div class="course-item-container course-foundation">
+        <a class="course-item" href="/course/programming_101">Database</a>
+        <a class="course-item" href="/course/programming_101">Software Development</a>
+        <a class="course-item" href="/course/programming_101">Data Structure & Algorithm</a>
+        <a class="course-item" href="/course/programming_101">Probability & Statistics</a>
+        <a class="course-item" href="/course/programming_101">Foundational Artificial Intelligent</a>
+        <a class="course-item" href="/course/programming_101">Computer Network</a>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="title section-title">
+        Advance Study Course
+      </div>
+      <div class="course-item-container course-advance">
+        <a class="course-item" href="/course/programming_101">Artificial Intelligent</a>
+        <a class="course-item" href="/course/programming_101">Computer Architecture</a>
+        <a class="course-item" href="/course/programming_101">Quantitive Finance</a>
+        <a class="course-item" href="/course/programming_101">Signal And Image Processing</a>
+      </div>
+    </div>
+    <div class="chapter">
+      <div class="title section-title">
+        Framework Course
+      </div>
+      <div class="course-item-container course-advance">
+        <a class="course-item" href="/course/programming_101">React</a>
+        <a class="course-item" href="/course/programming_101">Angular</a>
+        <a class="course-item" href="/course/programming_101">Vuejs</a>
+      </div>
+    </div>
+</body>
+<script src="{{ url_for ('static', filename='components.js') }}"></script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="static\style.css"
+    />
+  </head>
+  <body style="padding: 40px;">
+    <form>
+      <fieldset>
+        <legend style="padding: 0 5px;">Please select your preferred contact method</legend>
+        <div style="padding: 20px;">
+          <input
+            type="radio"
+            id="contactChoice1"
+            name="contact"
+            value="email"
+          />
+          <label for="contactChoice1">Email</label>
+
+          <input
+            type="radio"
+            id="contactChoice2"
+            name="contact"
+            value="phone"
+          />
+          <label for="contactChoice2">Phone</label>
+
+          <input type="radio" id="contactChoice3" name="contact" value="mail" />
+          <label for="contactChoice3">Mail</label>
+        </div>
+        <div>
+          <button class="btn" type="button">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

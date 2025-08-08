@@ -1,0 +1,14 @@
+{
+    "courses":[
+        {
+            "course_id":1,
+            "description":"Programming 101",
+            "required_courses":[]
+        },
+        {
+            "course_id":2,
+            "description":"Basic Web Application",
+            "required_courses":[]
+        }
+    ]
+}

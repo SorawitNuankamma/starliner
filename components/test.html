@@ -1,0 +1,80 @@
+<template id="exercise-quiz">
+  <script>
+    
+  </script>
+  <style>
+    button {
+      cursor: pointer;
+    }
+    .btn {
+      padding: 5px 20px;
+      font-size: 16px;
+      border-radius: 30px;
+      border: 1px solid gray;
+      transition: all ease-in-out 0.1s;
+    }
+
+    .message-err {
+      padding: 5px 20px;
+      font-size: 16px;
+      border-radius: 30px;
+      transition: all ease-in-out 0.1s;
+      background-color: rgb(247, 137, 137);
+    }
+
+    .message-success {
+      padding: 5px 20px;
+      font-size: 16px;
+      border-radius: 30px;
+      transition: all ease-in-out 0.1s;
+      background-color: rgb(159, 247, 137);
+    }
+
+    .result-container {
+      display: flex;
+      gap: 10px;
+    }
+
+    .message-reason {
+      background-color: rgb(207, 207, 207);
+    }
+
+    .container {
+      margin-top: 10px;
+    }
+
+    input {
+      cursor: pointer;
+      margin-right: 20px;
+      transform: scale(150%);
+    }
+
+    .reason-text {
+      padding: 20px;
+    }
+  </style>
+  <form>
+    <fieldset>
+      <legend style="padding: 0 5px" class="legend">Default Question</legend>
+      <div style="padding: 20px" class="container"></div>
+      <div class="result-container">
+        <button class="btn btn-submit" type="submit">Submit Answer</button>
+        <div style="position: relative; text-wrap: nowrap">
+          <div
+            class="message message-success"
+            style="position: absolute; visibility: hidden"
+          >
+            Correct
+          </div>
+          <div
+            class="message message-err"
+            style="position: absolute; visibility: hidden"
+          >
+            Wrong Answer
+          </div>
+        </div>
+      </div>
+      <div class="message-reason container"></div>
+    </fieldset>
+  </form>
+</template>

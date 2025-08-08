@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for ('static', filename='style.css') }}"
+    />
+  </head>
+  <style>
+    .page-link-container {
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    .page-link {
+      border-radius: 5px;
+      padding: 10px;
+      border: 1px solid rgb(83, 83, 83);
+    }
+  </style>
+  <body class="page">
+    <span class="course-title">{{course_name}}</span>
+    <div class="container">
+      <a class="back-btn" href="/">Back To Home Page</a>
+    </div>
+    {% block content %} {% endblock %}
+    <div class="container text-md">
+      <b>Course Contents</b>
+      <div class="page-link-container">
+        {% for chapter in chapters %}
+        <a class="page-link" href="/course/{{course_name}}/{{chapter.value}}/1"
+          >{{chapter.order}}. {{chapter.label}}</a
+        >
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
