@@ -78,7 +78,8 @@ def submission():
         "page_name",
         "submission_type",
         "content",
-        "is_passed",
+        "status",
+        "feedback"
     ]
     if not data or any(field not in data for field in required):
         return jsonify({"error": "Invalid request"}), 400
