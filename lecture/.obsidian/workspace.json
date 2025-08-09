@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming_101/outline.md",
+                "file": "programming_101/outline_2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "outline"
+              "title": "outline_2"
             }
           }
         ]
@@ -170,6 +170,8 @@
   },
   "active": "cfcd888f6342ab1b",
   "lastOpenFiles": [
+    "programming_101/outline.md",
+    "programming_101/outline_2.md",
     "programming_101/1_Introduction.md",
     "programming_101/1_introduction/9_Class And Object.md",
     "programming_101/1_introduction/6_Conditional Statement.md",
@@ -180,7 +182,6 @@
     "programming_101/1_introduction/6_Conditional_Statement.md",
     "programming_101/1_introduction/5_Composite_Variable.md",
     "programming_101/1_introduction/4_Variable.md",
-    "programming_101/outline.md",
     "programming_101/1_introduction/8_Class_And_Object.md",
     "programming_101/1_introduction/7_Function.md",
     "programming_101/1_introduction/6_Loop.md",
@@ -199,7 +200,6 @@
     "output/1_introduction/2_How Computer Keep and process data.md",
     "output/1_introduction/1_Welcome To Class.md",
     "output",
-    "Programming 101/Course Outline.md",
-    "Programming 101/Chapter 1 Introduction.md"
+    "Programming 101/Course Outline.md"
   ]
 }
