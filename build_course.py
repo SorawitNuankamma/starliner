@@ -14,12 +14,8 @@ def build_page(file_path):
     page = ""
     for group in paragraph_groups:
         page += build_component(group)
-    return """
-{% extends 'base_page.html' %}
-{% block content %}
-""" + page + """
-{% endblock %}
-"""
+    return """{% extends 'base_page.html' %}{% block content %}""" + page + """{% endblock %}"""
+
 def join_list(input_list, join_char) -> str:
     output = f'{input_list[0]} '
     for item in input_list[1:]:
@@ -27,19 +23,19 @@ def join_list(input_list, join_char) -> str:
     return output
 
 def build_component(paragraph_lines : list):
-    
+
     component = ""
     def build_custom_element(lines):
         component_name = lines[0][1:]
         attrs = [i.strip() for i in join_list(lines[1:], '').split("-")]
         return f'<{component_name} {join_list(attrs," ")}></{component_name}>'
-    
+
     def build_paragraph(lines):
         text = ""
         for line in lines:
             text += f"{line.strip()}<br>"
         return text
-    
+
     line_first_char = paragraph_lines[0][0]
     if line_first_char == "/":
         component = build_custom_element(paragraph_lines)
@@ -56,34 +52,37 @@ def build_component(paragraph_lines : list):
 # total arguments
 if len(sys.argv) != 2:
     raise Exception("Invald target")
-    
-target_course = sys.argv[1:][0]
-target_path = f'lecture\{target_course}'
 
+target_course = sys.argv[1]
+target_path = os.path.join('lecture', target_course)
 
-chapters = [{
-        "name":chapter,
-        "pages": [ {
-                "name":page,
-                "content":build_page(f'lecture\{target_course}\{chapter}\{page}')
-            } for page in os.listdir(f'lecture\{target_course}\{chapter}') if page.split(".")[1] == "md"]
-    } for chapter in os.listdir(target_path) if len(chapter.split(".")) == 1]
+chapters = [
+    {
+        "name": chapter,
+        "pages": [
+            {
+                "name": page,
+                "content": build_page(os.path.join('lecture', target_course, chapter, page))
+            }
+            for page in os.listdir(os.path.join('lecture', target_course, chapter))
+            if page.split(".")[1] == "md"
+        ]
+    }
+    for chapter in os.listdir(target_path)
+    if len(chapter.split(".")) == 1
+]
 
-output_directory = f"templates\{target_course}"
+output_directory = os.path.join('templates', target_course)
 
 for chapter in chapters:
-    try:
-        os.mkdir(f"{output_directory}\{chapter["name"]}")
-    except FileExistsError:
-        continue
+    os.makedirs(os.path.join(output_directory, chapter["name"]), exist_ok=True)
 
 for chapter in chapters:
     for page in chapter["pages"]:
-        f = open(f"{output_directory}\{chapter["name"]}\{page["name"].split(".")[0]}.html", "w", encoding="utf-8")
-        f.write(page["content"])
-    
-
-# Generate Submission
-        
-        
-    
+        output_path = os.path.join(
+            output_directory,
+            chapter["name"],
+            f"{page['name'].split('.')[0]}.html"
+        )
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(page["content"])
