@@ -1,5 +1,7 @@
 from flask import Flask, render_template, render_template_string, request, jsonify
 import os
+import json
+from datetime import datetime
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 
@@ -65,6 +67,34 @@ def course_page(course_name):
     return render_template(
         f"{course_name}/index.html", course_name=course_name, chapters=chapters
     )
+
+
+@app.route("/submission", methods=["POST"])
+def submission():
+    data = request.get_json()
+    required = [
+        "course_name",
+        "chapter_name",
+        "page_name",
+        "submission_type",
+        "content",
+        "is_passed",
+    ]
+    if not data or any(field not in data for field in required):
+        return jsonify({"error": "Invalid request"}), 400
+
+    submission_dir = os.path.join(os.path.dirname(__file__), "submission")
+    os.makedirs(submission_dir, exist_ok=True)
+
+    filename = (
+        f"{data['course_name']}{data['chapter_name']}{data['page_name']}"
+        f"{datetime.now().strftime('%d_%m_%y')}.json"
+    )
+
+    with open(os.path.join(submission_dir, filename), "w", encoding="utf-8") as f:
+        json.dump(data, f)
+
+    return jsonify({"message": "Submission saved"})
 
 
 @app.route("/execute", methods=["POST"])
