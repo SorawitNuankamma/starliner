@@ -73,9 +73,7 @@ def course_page(course_name):
 def submission():
     data = request.get_json()
     required = [
-        "course_name",
-        "chapter_name",
-        "page_name",
+        "exercise_name",
         "submission_type",
         "content",
         "status",
@@ -88,7 +86,7 @@ def submission():
     os.makedirs(submission_dir, exist_ok=True)
 
     filename = (
-        f"{data['course_name']}_{data['chapter_name']}_{data['page_name']}_"
+        f"{data['exercise_name']}_"
         f"{datetime.now().strftime('%d_%m_%y')}.json"
     )
 
