@@ -1,0 +1,43 @@
+{% extends 'base_page.html' %}{% block content %}<div class="container text-md">
+                    ฟังก์ชัน (Function) คือชุดคำสั่งที่รวมกันเพื่อทำงานเฉพาะอย่าง และสามารถเรียกใช้งานซ้ำได้<br>
+            </div>
+            <div class="container text-md">
+                    <pre><code class="language-python">def add(a,b):
+    return a + b
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    result = add(2,3)<br>```<br>
+            </div>
+            <div class="container text-md">
+                    <h3>พารามิเตอร์และการส่งค่า</h3>
+<p>พารามิเตอร์คือค่าที่ส่งเข้าไปในฟังก์ชัน ตัวแปรที่ส่งเข้าไปมีทั้งแบบ pass by value และ pass by reference</p>
+
+            </div>
+            <div class="container text-md">
+                    <pre><code class="language-python">def append_item(lst):
+    lst.append(5)
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    nums = [1,2]<br>append_item(nums)<br># nums กลายเป็น [1,2,5]<br>```<br>
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="param_quiz" question="ค่าชนิดใดเมื่อส่งเข้า function แล้วค่าต้นฉบับเปลี่ยน" choices="int, list" correct_choice="2" choices_reason="int เป็น pass by value, list เป็น reference"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>การคืนค่า (Return)</h3>
+<p>ฟังก์ชันอาจไม่คืนค่า หรือคืนค่าชนิดต่างๆ ได้</p>
+
+            </div>
+            <div class="container text-md">
+                    <h3>แบบฝึกหัด</h3>
+<ol>
+<li>เขียนฟังก์ชันแยกส่วนการคำนวณพื้นที่สามเหลี่ยม</li>
+<li>เขียนฟังก์ชันเพิ่มสมาชิกให้ list และคืนค่าจำนวนสมาชิกทั้งหมด</li>
+</ol>
+
+            </div>
+            {% endblock %}

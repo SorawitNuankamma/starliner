@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming_101/1_Introduction.md",
+                "file": "programming_101/outline.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "1_Introduction"
+              "title": "outline"
             }
           }
         ]
@@ -170,10 +170,28 @@
   },
   "active": "cfcd888f6342ab1b",
   "lastOpenFiles": [
-    "programming_101/1_introduction/1_Welcome To Class.md",
-    "programming_101/1_introduction/3_Programming Concept.md",
     "programming_101/1_Introduction.md",
+    "programming_101/1_introduction/9_Class And Object.md",
+    "programming_101/1_introduction/6_Conditional Statement.md",
+    "programming_101/1_introduction/5_Composite Variable.md",
+    "programming_101/1_introduction/9_Class_And_Object.md",
+    "programming_101/1_introduction/8_Function.md",
+    "programming_101/1_introduction/7_Loop.md",
+    "programming_101/1_introduction/6_Conditional_Statement.md",
+    "programming_101/1_introduction/5_Composite_Variable.md",
+    "programming_101/1_introduction/4_Variable.md",
+    "programming_101/outline.md",
+    "programming_101/1_introduction/8_Class_And_Object.md",
+    "programming_101/1_introduction/7_Function.md",
+    "programming_101/1_introduction/6_Loop.md",
+    "programming_101/1_introduction/5_Conditional_Statement.md",
+    "programming_101/1_introduction/4_Composite_Variable.md",
+    "programming_101/1_introduction/3_Variable.md",
+    "programming_101/1_introduction/3_Programming Concept.md",
     "programming_101/1_introduction/2_Basics To Computer.md",
+    "programming_101/1_introduction/1_Welcome To Class.md",
+    "programming_101/1_introduction/7_Final_Exam.md",
+    "programming_101/3_basic_python_programming",
     "programming_101/Course Outline.md",
     "output/1_introduction/2_How Computer Keep and process data.md.html",
     "output/1_introduction/1_Welcome To Class.md.html",
@@ -182,7 +200,6 @@
     "output/1_introduction/1_Welcome To Class.md",
     "output",
     "Programming 101/Course Outline.md",
-    "Programming 101/Chapter 1 Introduction.md",
-    "Programming 101/1_Introduction.md"
+    "Programming 101/Chapter 1 Introduction.md"
   ]
 }

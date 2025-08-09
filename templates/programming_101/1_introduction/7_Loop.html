@@ -1,0 +1,33 @@
+{% extends 'base_page.html' %}{% block content %}<div class="container text-md">
+                    ลูป (Loop) ใช้สำหรับทำงานซ้ำ ๆ อย่างมีประสิทธิภาพ<br>
+            </div>
+            <div class="container text-md">
+                    <h3>For Loop</h3>
+<p>เหมาะสำหรับจำนวนรอบที่แน่นอน</p>
+<pre><code class="language-python">for i in range(3):
+    print(i)
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    สามารถใช้กับลิสต์หรือดิกชันนารี<br>```python<br>items = ["a","b"]<br>for item in items:<br>print(item)<br>```<br>
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="for_range_quiz" question="ผลลัพธ์ของ range(3) คืออะไร" choices="0,1,2, 1,2,3" correct_choice="1"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>While Loop</h3>
+<p>ทำงานจนกว่าเงื่อนไขจะเป็นเท็จ</p>
+<pre><code class="language-python">count = 0
+while count &lt; 3:
+    print(count)
+    count += 1
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    <h3>แบบฝึกหัด</h3>
+<p>เขียนโปรแกรมรับคะแนนหลายตัวและคำนวณค่าเฉลี่ยโดยใช้ลูป</p>
+
+            </div>
+            {% endblock %}

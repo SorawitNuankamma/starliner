@@ -1,0 +1,81 @@
+{% extends 'base_page.html' %}{% block content %}<div class="container text-md">
+                    ตัวแปรเชิงประกอบ (Composite Variable) คือโครงสร้างที่สามารถเก็บข้อมูลหลายค่าในตัวแปรเดียว<br>
+            </div>
+            <div class="container text-md">
+                    <h3>1. List</h3>
+<p>List ใช้เก็บข้อมูลหลายค่าเป็นลำดับ สามารถเพิ่มหรือลบข้อมูลได้</p>
+
+            </div>
+            <div class="container text-md">
+                    <pre><code class="language-python">numbers = [1,2,3]
+numbers.append(4)
+first = numbers[0]
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    - ใช้ `append()` เพื่อเพิ่มค่า<br>- ใช้อินเด็กซ์ `[index]` เพื่อเข้าถึงค่า<br>- ใช้ slicing เช่น `numbers[:-1]`<br>
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="list_quiz" question="คำสั่งใดใช้ลบค่าตัวสุดท้ายของ list" choices="pop(),push(),remove()" correct_choice="1"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>2. String</h3>
+<p>String คือชุดของตัวอักษร สามารถต่อและจัดรูปแบบได้</p>
+
+            </div>
+            <div class="container text-md">
+                    <pre><code class="language-python">first = &quot;Star&quot;
+last = &quot;Liner&quot;
+name = first + last
+print(f&quot;ชื่อเต็ม {name}&quot;)
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="string_format_quiz" question="หากต้องการใส่ค่าตัวแปรลงในข้อความควรใช้รูปแบบใด" choices="'{}', f string, concat ด้วย +" correct_choice="2"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>3. Dictionary</h3>
+<p>Dictionary เก็บคู่ของชื่อกับค่า ใช้งานคล้ายตารางค้นหา</p>
+
+            </div>
+            <div class="container text-md">
+                    <pre><code class="language-python">country = {&quot;thai&quot;:&quot;Bangkok&quot;,&quot;japan&quot;:&quot;Tokyo&quot;}
+print(country[&quot;thai&quot;])
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="dict_quiz" question="หากต้องการเพิ่ม key ใหม่ใน dictionary ต้องใช้รูปแบบใด" choices="dict.add(key,value), dict[key]=value, append()" correct_choice="2"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>4. Object</h3>
+<p>Object คือโครงสร้างที่มีทั้งข้อมูลและพฤติกรรม (method)</p>
+
+            </div>
+            <div class="container text-md">
+                    <pre><code class="language-python">class Dog:
+    def __init__(self,name):
+        self.name = name
+    def bark(self):
+        print(&quot;woof&quot;)
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    pet = Dog("Milo")<br>pet.bark()<br>```<br>
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="object_method_quiz" question="คำสั่งใดถูกต้องในการเรียกใช้ method ของ object" choices="Dog.bark(), pet.bark(), bark(pet)" correct_choice="2"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>แบบฝึกหัด</h3>
+<ol>
+<li>สร้าง list ของคะแนนนักเรียนและหาค่าเฉลี่ย</li>
+<li>สร้าง dictionary สำหรับนับจำนวนตัวอักษรในข้อความ</li>
+<li>สร้าง class อย่างง่ายที่มี property และ method ของตนเอง</li>
+</ol>
+
+            </div>
+            {% endblock %}

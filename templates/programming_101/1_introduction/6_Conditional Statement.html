@@ -1,0 +1,49 @@
+{% extends 'base_page.html' %}{% block content %}<div class="container text-md">
+                    คำสั่งเงื่อนไข (Conditional Statement) ใช้ควบคุมการทำงานของโปรแกรมตามเงื่อนไขที่กำหนด<br>
+            </div>
+            <div class="container text-md">
+                    <h3>1. If และ Else</h3>
+<pre><code class="language-python">score = 70
+if score &gt;= 50:
+    print(&quot;ผ่าน&quot;)
+else:
+    print(&quot;ไม่ผ่าน&quot;)
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="if_else_quiz" question="เงื่อนไขใดทำให้คำสั่ง else ทำงาน" choices="เมื่อเงื่อนไขใน if เป็นจริง, เมื่อเงื่อนไขใน if เป็นเท็จ" correct_choice="2"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>2. Elif</h3>
+<p>ใช้สำหรับตรวจหลายเงื่อนไข</p>
+<pre><code class="language-python">n = 0
+if n &gt; 0:
+    print(&quot;บวก&quot;)
+elif n == 0:
+    print(&quot;ศูนย์&quot;)
+else:
+    print(&quot;ลบ&quot;)
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    <h3>3. Match Case (Python 3.10 ขึ้นไป)</h3>
+<pre><code class="language-python">status = &quot;ok&quot;
+match status:
+    case &quot;ok&quot;:
+        print(&quot;ทำงานต่อ&quot;)
+    case &quot;error&quot;:
+        print(&quot;หยุด&quot;)
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="match_quiz" question="คำสั่ง match ใช้แทนโครงสร้างใดได้" choices="switch case, for loop" correct_choice="1"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>แบบฝึกหัด</h3>
+<p>เขียนโปรแกรมให้รับคะแนนและแสดงเกรด A,B,C,D หรือ F ตามช่วงคะแนน</p>
+
+            </div>
+            {% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base_page.html' %}{% block content %}<div class="container text-md">
+                    ในบทนี้เราจะเรียนรู้เกี่ยวกับตัวแปร (Variable) ซึ่งเป็นหน่วยพื้นฐานที่สุดในการเก็บข้อมูลในโปรแกรม<br>
+            </div>
+            <div class="container text-md">
+                    ตัวแปรในภาษา Python สามารถเก็บค่าหลายประเภท เช่น<br>- `int` จำนวนนับหรือจำนวนเต็ม<br>- `float` จำนวนจริงที่มีจุดทศนิยม<br>- `bool` ค่าตรรกะ `True` หรือ `False`<br>
+            </div>
+            <div class="container text-md">
+                    การดำเนินการพื้นฐานของตัวแปรแต่ละชนิด<br>- ตัวเลขสามารถใช้เครื่องหมาย `+ - * /`<br>- ค่าตรรกะสามารถใช้ `and`, `or`, `not`<br>
+            </div>
+            <div class="container text-md">
+                    <pre><code class="language-python">x = 10
+pi = 3.14
+is_ok = True
+result = (x + 5) * 2
+</code></pre>
+
+            </div>
+            <div class="container text-md">
+                    <h3>การตั้งชื่อตัวแปรและขอบเขตของตัวแปร</h3>
+<p>ชื่อของตัวแปรควรสื่อความหมายและไม่ซ้ำกับคำสงวนของภาษา เช่น <code>total_price</code> หรือ <code>count</code>
+ขอบเขตของตัวแปร (scope) คือช่วงที่ตัวแปรสามารถถูกใช้งานได้ ภายในฟังก์ชันหรือภายนอกฟังก์ชันจะมีขอบเขตต่างกัน</p>
+
+            </div>
+            <div class="container text-md">
+                    <​exercise-quiz   name="variable_scope_quiz" question="ตัวแปรที่ประกาศภายในฟังก์ชันสามารถถูกใช้ภายนอกฟังก์ชันได้หรือไม่" choices="ได้,ไม่ได้" correct_choice="2" choices_reason="ตัวแปรภายในฟังก์ชันจะถูกทำลายเมื่อจบการทำงานของฟังก์ชัน,ถูกต้อง"></​exercise-quiz>
+            </div>
+            <div class="container text-md">
+                    <h3>แบบฝึกหัด</h3>
+<ol>
+<li>เขียนโปรแกรมคำนวณสูตรขนมจากส่วนผสมที่กำหนด</li>
+<li>เขียนโปรแกรมแปลงอุณหภูมิจากองศาเซลเซียสเป็นฟาเรนไฮต์</li>
+</ol>
+
+            </div>
+            {% endblock %}
