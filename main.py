@@ -87,7 +87,7 @@ def submission():
     os.makedirs(submission_dir, exist_ok=True)
 
     filename = (
-        f"{data['course_name']}{data['chapter_name']}{data['page_name']}"
+        f"{data['course_name']}_{data['chapter_name']}_{data['page_name']}_"
         f"{datetime.now().strftime('%d_%m_%y')}.json"
     )
 

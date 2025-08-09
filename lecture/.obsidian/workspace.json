@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "programming_101/outline_2.md",
+                "file": "programming_101/1_Introduction/2_How Computer Process Information.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "outline_2"
+              "title": "2_How Computer Process Information"
             }
           }
         ]
@@ -170,9 +170,12 @@
   },
   "active": "cfcd888f6342ab1b",
   "lastOpenFiles": [
-    "programming_101/outline.md",
     "programming_101/outline_2.md",
+    "programming_101/1_Introduction/2_How Computer Process Information.md",
+    "programming_101/1_Introduction/1_Welcome To The Course.md",
     "programming_101/1_Introduction.md",
+    "programming_101/1_Introduction",
+    "programming_101/outline.md",
     "programming_101/1_introduction/9_Class And Object.md",
     "programming_101/1_introduction/6_Conditional Statement.md",
     "programming_101/1_introduction/5_Composite Variable.md",
@@ -198,8 +201,6 @@
     "output/1_introduction/1_Welcome To Class.md.html",
     "output/1_introduction",
     "output/1_introduction/2_How Computer Keep and process data.md",
-    "output/1_introduction/1_Welcome To Class.md",
-    "output",
-    "Programming 101/Course Outline.md"
+    "output"
   ]
 }
