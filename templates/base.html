@@ -89,6 +89,38 @@
       </fieldset>
       </form>
     </template>
+    <template id="exercise-subjective">
+      <style>
+        button {
+          cursor: pointer;
+        }
+        .btn {
+          padding: 5px 20px;
+          font-size: 16px;
+          border-radius: 30px;
+          border: 1px solid gray;
+          transition: all ease-in-out 0.1s;
+        }
+        .container {
+          margin-top: 10px;
+        }
+        textarea {
+          width: 100%;
+          resize: vertical;
+        }
+      </style>
+      <form>
+        <fieldset>
+          <legend style="padding: 0 5px" class="legend">Default Question</legend>
+          <div class="container">
+            <textarea rows="4"></textarea>
+          </div>
+          <button class="btn btn-submit" type="submit">
+            Submit Answer
+          </button>
+        </fieldset>
+      </form>
+    </template>
     {% block body %} {% endblock %}
   </body>
   <script src="{{ url_for ('static', filename='jquery.js') }}"></script>

@@ -253,5 +253,76 @@ class ExcerciseQuiz extends HTMLElement {
   }
 }
 
+class ExerciseSubjective extends HTMLElement {
+  static observedAttributes = ["exercise_name", "exercise_label"];
+
+  exercise_name = "";
+  exercise_label = "default question";
+  content = "";
+
+  submitQuestion = (e) => {
+    e.preventDefault();
+    const answerEl = this.shadowRoot.querySelector("textarea");
+    this.content = answerEl.value;
+    fetch("/api/submit-submission", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        exercise_name: this.exercise_name,
+        submission_type: "text",
+        content: this.content,
+        status: "submitted",
+        feedback: "",
+      }),
+    }).catch((err) => console.error(err));
+  };
+
+  constructor() {
+    super();
+    let template = document.getElementById("exercise-subjective");
+    let templateContent = template.content;
+
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    this.style.display = "block";
+    shadowRoot.appendChild(templateContent.cloneNode(true));
+    this.shadowRoot
+      .querySelector("form")
+      .addEventListener("submit", this.submitQuestion);
+  }
+
+  connectedCallback() {
+    fetch("/api/submissions")
+      .then((res) => res.json())
+      .then((submissions) => {
+        const matches = submissions.filter(
+          (s) => s.exercise_name === this.exercise_name
+        );
+        if (matches.length > 0) {
+          const submission = matches[matches.length - 1];
+          this.content = submission.content;
+          this.shadowRoot.querySelector("textarea").value = this.content;
+        }
+      })
+      .catch((err) => console.error(err));
+    this.initialRender();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name == "exercise_name") {
+      this.exercise_name = newValue;
+    }
+    if (name == "exercise_label") {
+      this.exercise_label = newValue;
+    }
+    this.initialRender();
+  }
+
+  initialRender() {
+    let questionLabel = this.shadowRoot.querySelector(".legend");
+    questionLabel.innerHTML = this.exercise_label;
+  }
+}
+
 customElements.define("course-link", CourseLink);
 customElements.define("exercise-single-choices", ExcerciseQuiz);
+customElements.define("exercise-subjective", ExerciseSubjective);
