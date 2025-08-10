@@ -100,6 +100,7 @@ class ExcerciseQuiz extends HTMLElement {
   static observedAttributes = [
     "exercise_name",
     "exercise_label",
+    // specifict attribute
     "choices",
     "selected_choice",
     "correct_choice",
@@ -109,12 +110,17 @@ class ExcerciseQuiz extends HTMLElement {
   // attribute
   exercise_name = "";
   exercise_label = "default question";
-
+  status = "none"
   // specifict attribute
   choices = [];
   selected_choice = 0;
   correct_choice = 1;
   choices_reason = [];
+
+  // only exist on exercise component that can automaticly check for answer
+  getSubmissionStatus = () => {
+    return this.selected_choice == this.correct_choice ? "passed" : "failed"
+  }
 
   submitQuestion = (e) => {
     e.preventDefault();
@@ -125,7 +131,7 @@ class ExcerciseQuiz extends HTMLElement {
         exercise_name: this.exercise_name,
         submission_type: "choices",
         content: String(this.selected_choice),
-        status: this.selected_choice == this.correct_choice ? "passed" : "failed",
+        status: this.getSubmissionStatus(),
         feedback: "",
       }),
     }).catch((err) => console.error(err));
@@ -153,10 +159,12 @@ class ExcerciseQuiz extends HTMLElement {
           (s) => s.exercise_name === this.exercise_name
         );
         if (matches.length > 0) {
-          const latest = matches[matches.length - 1];
-          const choice = parseInt(latest.content);
+          const submission = matches[matches.length - 1];
+          const status = submission.status
+          const choice = parseInt(submission.content);
           if (!isNaN(choice)) {
             this.selected_choice = choice;
+            this.status = status;
             this.shadowRoot.querySelectorAll("input").forEach((el, i) => {
               el.checked = i + 1 == this.selected_choice;
             });
@@ -169,14 +177,14 @@ class ExcerciseQuiz extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     console.log(name);
-    if (name == "choices") {
-      this.choices = newValue.split(",");
-    }
     if (name == "exercise_name"){
       this.exercise_name = newValue
     }
     if (name == "exercise_label") {
       this.exercise_label = newValue;
+    }
+    if (name == "choices") {
+      this.choices = newValue.split(",");
     }
     if (name == "selected_choice") {
       this.selected_choice = parseInt(newValue);
@@ -222,7 +230,10 @@ class ExcerciseQuiz extends HTMLElement {
     if (this.selected_choice == 0) return;
     const messageSuccessEl = this.shadowRoot.querySelector(".message-success");
     const messageErrorEl = this.shadowRoot.querySelector(".message-err");
-    if (this.selected_choice == this.correct_choice) {
+    // only call on component that can auto check answer
+    this.status = this.getSubmissionStatus()
+    
+    if (this.status == "success") {
       messageSuccessEl.style.visibility = "visible";
       messageErrorEl.style.visibility = "hidden";
     } else {
