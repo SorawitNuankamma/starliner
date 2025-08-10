@@ -69,7 +69,7 @@ def course_page(course_name):
     )
 
 
-@app.route("/submission", methods=["POST"])
+@app.route("/api/submission", methods=["POST"])
 def submission():
     data = request.get_json()
     required = [
@@ -96,7 +96,25 @@ def submission():
     return jsonify({"message": "Submission saved"})
 
 
-@app.route("/execute", methods=["POST"])
+@app.route("/api/submissions", methods=["GET"])
+def get_submissions():
+    submission_dir = os.path.join(os.path.dirname(__file__), "submission")
+    os.makedirs(submission_dir, exist_ok=True)
+
+    submissions = []
+    for filename in os.listdir(submission_dir):
+        if filename.endswith(".json"):
+            filepath = os.path.join(submission_dir, filename)
+            with open(filepath, "r", encoding="utf-8") as f:
+                try:
+                    submissions.append(json.load(f))
+                except json.JSONDecodeError:
+                    continue
+
+    return jsonify(submissions)
+
+
+@app.route("/api/execute", methods=["POST"])
 def execute_code():
     data = request.get_json()
     if not data or "programming_language_name" not in data or "code_content" not in data:
