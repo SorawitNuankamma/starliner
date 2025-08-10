@@ -320,6 +320,7 @@ class ExerciseSubjective extends HTMLElement {
   initialRender() {
     let questionLabel = this.shadowRoot.querySelector(".legend");
     questionLabel.innerHTML = this.exercise_label;
+    
   }
 }
 
