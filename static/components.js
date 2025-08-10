@@ -135,7 +135,7 @@ class ExcerciseQuiz extends HTMLElement {
   constructor() {
     // Always call super first in constructor
     super();
-    let template = document.getElementById("exercise-quiz");
+    let template = document.getElementById("exercise-single-choices");
     let templateContent = template.content;
 
     const shadowRoot = this.attachShadow({ mode: "open" });
@@ -176,4 +176,4 @@ class ExcerciseQuiz extends HTMLElement {
 }
 
 customElements.define("course-link", CourseLink);
-customElements.define("exercise-quiz", ExcerciseQuiz);
+customElements.define("exercise-single-choices", ExcerciseQuiz);

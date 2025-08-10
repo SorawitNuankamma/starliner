@@ -13,7 +13,7 @@ first = numbers[0]
 - ใช้อินเด็กซ์ `[index]` เพื่อเข้าถึงค่า
 - ใช้ slicing เช่น `numbers[:-1]`
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="list_quiz"
 - question="คำสั่งใดใช้ลบค่าตัวสุดท้ายของ list"
 - choices="pop(),push(),remove()"
@@ -29,7 +29,7 @@ name = first + last
 print(f"ชื่อเต็ม {name}")
 ```
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="string_format_quiz"
 - question="หากต้องการใส่ค่าตัวแปรลงในข้อความควรใช้รูปแบบใด"
 - choices="'{}', f-string, concat ด้วย +"
@@ -43,7 +43,7 @@ country = {"thai":"Bangkok","japan":"Tokyo"}
 print(country["thai"])
 ```
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="dict_quiz"
 - question="หากต้องการเพิ่ม key ใหม่ใน dictionary ต้องใช้รูปแบบใด"
 - choices="dict.add(key,value), dict[key]=value, append()"
@@ -63,7 +63,7 @@ pet = Dog("Milo")
 pet.bark()
 ```
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="object_method_quiz"
 - question="คำสั่งใดถูกต้องในการเรียกใช้ method ของ object"
 - choices="Dog.bark(), pet.bark(), bark(pet)"

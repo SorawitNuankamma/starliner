@@ -19,7 +19,7 @@ append_item(nums)
 # nums กลายเป็น [1,2,5]
 ```
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="param_quiz"
 - question="ค่าชนิดใดเมื่อส่งเข้า function แล้วค่าต้นฉบับเปลี่ยน"
 - choices="int, list"

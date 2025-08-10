@@ -9,7 +9,7 @@ else:
     print("ไม่ผ่าน")
 ```
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="if_else_quiz"
 - question="เงื่อนไขใดทำให้คำสั่ง else ทำงาน"
 - choices="เมื่อเงื่อนไขใน if เป็นจริง, เมื่อเงื่อนไขใน if เป็นเท็จ"
@@ -37,7 +37,7 @@ match status:
         print("หยุด")
 ```
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="match_quiz"
 - question="คำสั่ง match ใช้แทนโครงสร้างใดได้"
 - choices="switch-case, for-loop"

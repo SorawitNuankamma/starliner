@@ -15,7 +15,7 @@ p = Person("Bee")
 p.say()
 ```
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="class_quiz"
 - question="เมธอดพิเศษที่ใช้สำหรับสร้างออบเจกต์คืออะไร"
 - choices="__init__, __main__"

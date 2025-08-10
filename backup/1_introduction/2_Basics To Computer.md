@@ -47,7 +47,7 @@ ADD x1 x2 x3
 | x2       | 15    |
 | x3       | 32    |
 
-/exercise-quiz
+/exercise-single-choices
 - name="exercise_2"
 - question="ให้ทายว่าใน Instruction Set นี้ คอมพิวเตอร์ทำอะไร"
 - choices="
@@ -104,7 +104,7 @@ is_rich = is_have_car and is_have_house
 salary = 30000
 ```
 
-/exercise-quiz
+/exercise-single-choices
 - name="exercise_3"
 - question="ให้เดาว่า Instruction Set  ข้างบน มีผลลัพท์เหมือนการเขียนโปรแกรมบรรทัดใด"
 - choices="

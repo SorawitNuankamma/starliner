@@ -14,7 +14,7 @@ for item in items:
     print(item)
 ```
 
-/​exercise-quiz
+/​exercise-single-choices
 - name="for_range_quiz"
 - question="ผลลัพธ์ของ range(3) คืออะไร"
 - choices="0,1,2, 1,2,3"
