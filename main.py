@@ -69,7 +69,7 @@ def course_page(course_name):
     )
 
 
-@app.route("/api/submission", methods=["POST"])
+@app.route("/api/submit-submission", methods=["POST"])
 def submission():
     data = request.get_json()
     required = [
@@ -86,8 +86,8 @@ def submission():
     os.makedirs(submission_dir, exist_ok=True)
 
     filename = (
-        f"{data['exercise_name']}_"
-        f"{datetime.now().strftime('%d_%m_%y')}.json"
+        f"{data['exercise_name']}-"
+        f"{datetime.now().strftime('%d_%m_%y-%H_%M_%S')}.json"
     )
 
     with open(os.path.join(submission_dir, filename), "w", encoding="utf-8") as f:

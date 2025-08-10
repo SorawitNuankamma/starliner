@@ -118,7 +118,7 @@ class ExcerciseQuiz extends HTMLElement {
 
   submitQuestion = (e) => {
     e.preventDefault();
-    fetch("/api/submission", {
+    fetch("/api/submit-submission", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -171,6 +171,9 @@ class ExcerciseQuiz extends HTMLElement {
     console.log(name);
     if (name == "choices") {
       this.choices = newValue.split(",");
+    }
+    if (name == "exercise_name"){
+      this.exercise_name = newValue
     }
     if (name == "exercise_label") {
       this.exercise_label = newValue;
