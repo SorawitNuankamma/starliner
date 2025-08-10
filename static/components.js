@@ -118,6 +118,17 @@ class ExcerciseQuiz extends HTMLElement {
 
   submitQuestion = (e) => {
     e.preventDefault();
+    fetch("/api/submission", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        exercise_name: this.exercise_name,
+        submission_type: "choices",
+        content: String(this.selected_choice),
+        status: this.selected_choice == this.correct_choice ? "passed" : "failed",
+        feedback: "",
+      }),
+    }).catch((err) => console.error(err));
     this.render();
   };
 
@@ -132,6 +143,28 @@ class ExcerciseQuiz extends HTMLElement {
     shadowRoot.appendChild(templateContent.cloneNode(true));
     let el = this.shadowRoot.querySelector("form");
     el.addEventListener("submit", this.submitQuestion);
+  }
+
+  connectedCallback() {
+    fetch("/api/submissions")
+      .then((res) => res.json())
+      .then((submissions) => {
+        const matches = submissions.filter(
+          (s) => s.exercise_name === this.exercise_name
+        );
+        if (matches.length > 0) {
+          const latest = matches[matches.length - 1];
+          const choice = parseInt(latest.content);
+          if (!isNaN(choice)) {
+            this.selected_choice = choice;
+            this.shadowRoot.querySelectorAll("input").forEach((el, i) => {
+              el.checked = i + 1 == this.selected_choice;
+            });
+            this.render();
+          }
+        }
+      })
+      .catch((err) => console.error(err));
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
