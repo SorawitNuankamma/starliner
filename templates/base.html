@@ -11,19 +11,8 @@
     />
   </head>
   <body class="page-content page-nav-hidden" id="page-nav">
-    <template id="exercise-single-choices">
+    <template id="exercise-message">
       <style>
-        button {
-          cursor: pointer;
-        }
-        .btn {
-          padding: 5px 20px;
-          font-size: 16px;
-          border-radius: 30px;
-          border: 1px solid gray;
-          transition: all ease-in-out 0.1s;
-        }
-
         .message-err {
           padding: 5px 20px;
           font-size: 16px;
@@ -40,15 +29,49 @@
           background-color: rgb(159, 247, 137);
         }
 
+        .message-reason {
+          background-color: rgb(207, 207, 207);
+        }
+
+        .container {
+          margin-top: 10px;
+        }
+
+        .reason-text {
+          padding: 20px;
+        }
+      </style>
+      <div>
+        <div style="position: relative; text-wrap: nowrap">
+          <div class="message message-success" style="position: absolute; visibility: hidden">
+            Correct
+          </div>
+          <div class="message message-err" style="position: absolute; visibility: hidden">
+            Wrong Answer
+          </div>
+        </div>
+        <div class="message-reason container"></div>
+      </div>
+    </template>
+
+    <template id="exercise-single-choices">
+      <style>
+        button {
+          cursor: pointer;
+        }
+        .btn {
+          padding: 5px 20px;
+          font-size: 16px;
+          border-radius: 30px;
+          border: 1px solid gray;
+          transition: all ease-in-out 0.1s;
+        }
+
         .result-container {
           display: flex;
           gap: 10px;
         }
 
-        .message-reason {
-          background-color: rgb(207, 207, 207);
-        }
-        
         .container {
           margin-top: 10px;
         }
@@ -58,12 +81,6 @@
           margin-right: 20px;
           transform: scale(150%);
         }
-
-        .reason-text {
-          padding: 20px;
-        }
-
-        
       </style>
       <form>
         <fieldset>
@@ -76,16 +93,8 @@
           >
             Submit Answer
           </button>
-          <div style="position: relative;text-wrap: nowrap">
-            <div class="message message-success" style="position: absolute;visibility: hidden;">
-            Correct
-            </div>
-            <div class="message message-err" style="position: absolute;visibility: hidden;">
-            Wrong Answer
-            </div>
-          </div>
         </div>
-        <div class="message-reason container"></div>
+        <exercise-message></exercise-message>
       </fieldset>
       </form>
     </template>
