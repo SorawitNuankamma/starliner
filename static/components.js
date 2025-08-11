@@ -66,6 +66,49 @@ class ComponentUtil {
   }
 }
 
+class ExerciseMessage extends HTMLElement {
+  static observedAttributes = ["status", "reason"];
+
+  status = "none";
+  reason = "";
+
+  constructor() {
+    super();
+    let template = document.getElementById("exercise-message");
+    let templateContent = template.content;
+
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.appendChild(templateContent.cloneNode(true));
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name == "status") {
+      this.status = newValue;
+    }
+    if (name == "reason") {
+      this.reason = newValue;
+    }
+    this.render();
+  }
+
+  render() {
+    const successEl = this.shadowRoot.querySelector(".message-success");
+    const errEl = this.shadowRoot.querySelector(".message-err");
+    const reasonContainer = this.shadowRoot.querySelector(".message-reason");
+    const isSuccess = this.status === "success" || this.status === "passed";
+
+    successEl.style.visibility = isSuccess ? "visible" : "hidden";
+    errEl.style.visibility = isSuccess ? "hidden" : "visible";
+
+    reasonContainer.innerHTML = "";
+    if (this.reason) {
+      reasonContainer.appendChild(
+        CF.create("div").class("reason-text").content(this.reason).get()
+      );
+    }
+  }
+}
+
 class CourseLink extends HTMLElement {
   static observedAttributes = ["href"];
 
@@ -228,27 +271,16 @@ class ExcerciseQuiz extends HTMLElement {
 
   render() {
     if (this.selected_choice == 0) return;
-    const messageSuccessEl = this.shadowRoot.querySelector(".message-success");
-    const messageErrorEl = this.shadowRoot.querySelector(".message-err");
     // only call on component that can auto check answer
-    this.status = this.getSubmissionStatus()
-    
-    if (this.status == "success") {
-      messageSuccessEl.style.visibility = "visible";
-      messageErrorEl.style.visibility = "hidden";
-    } else {
-      messageSuccessEl.style.visibility = "hidden";
-      messageErrorEl.style.visibility = "visible";
-    }
+    this.status = this.getSubmissionStatus();
+    const messageEl = this.shadowRoot.querySelector("exercise-message");
+    messageEl.setAttribute("status", this.status);
+
     if (this.choices_reason.length > 0) {
-      let reasonContainer = this.shadowRoot.querySelector(".message-reason");
-      reasonContainer.innerHTML = "";
-      reasonContainer.appendChild(
-        CF.create("div")
-          .class("reason-text")
-          .content(this.choices_reason[valueIndex])
-          .get()
-      );
+      const reason = this.choices_reason[this.selected_choice - 1];
+      messageEl.setAttribute("reason", reason);
+    } else {
+      messageEl.setAttribute("reason", "");
     }
   }
 }
@@ -324,6 +356,7 @@ class ExerciseSubjective extends HTMLElement {
   }
 }
 
+customElements.define("exercise-message", ExerciseMessage);
 customElements.define("course-link", CourseLink);
 customElements.define("exercise-single-choices", ExcerciseQuiz);
 customElements.define("exercise-subjective", ExerciseSubjective);
